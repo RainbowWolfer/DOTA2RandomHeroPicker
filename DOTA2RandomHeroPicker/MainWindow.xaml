@@ -1,0 +1,39 @@
+﻿<Window
+    x:Class="DOTA2RandomHeroPicker.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DOTA2RandomHeroPicker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+	<Grid Loaded="Grid_Loaded">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="28"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Grid x:Name="AppTitleBar">
+			<Image Source="Icons/DOTA2.png" HorizontalAlignment="Left" Width="16" Height="16" Margin="8,0"/>
+			<TextBlock x:Name="AppTitleTextBlock" Text="DOTA2 Hero Random Picker"   TextWrapping="NoWrap" Style="{StaticResource CaptionTextBlockStyle}"     VerticalAlignment="Center" Margin="32,0,0,0"/>
+		</Grid>
+		<NavigationView x:Name="MainNavigationView" PaneDisplayMode="Top" ItemInvoked="MainNavigationView_ItemInvoked" BackRequested="MainNavigationView_BackRequested" Grid.Row="1">
+			<NavigationView.MenuItems>
+				<NavigationViewItem x:Name="HomeItem" Icon="Home" Content="Home"/>
+				<NavigationViewItem x:Name="WeightItem" Content="Weight">
+					<NavigationViewItem.Icon>
+						<FontIcon Glyph="&#xE9E9;"/>
+					</NavigationViewItem.Icon>
+				</NavigationViewItem>
+			</NavigationView.MenuItems>
+			<NavigationView.Content>
+				<Frame x:Name="MainFrame" Navigated="MainFrame_Navigated">
+					<Frame.ContentTransitions>
+						<TransitionCollection>
+							<NavigationThemeTransition />
+						</TransitionCollection>
+					</Frame.ContentTransitions>
+				</Frame>
+			</NavigationView.Content>
+		</NavigationView>
+	</Grid>
+</Window>

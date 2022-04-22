@@ -1,0 +1,22 @@
+﻿<UserControl
+    x:Class="DOTA2RandomHeroPicker.Views.FilterWeightSlider"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DOTA2RandomHeroPicker.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+	<StackPanel Orientation="Horizontal" Margin="5">
+		<CheckBox x:Name="EnabledCheckBox" IsChecked="{x:Bind IsChecked, Mode=OneWay}" MinWidth="150" Click="EnabledCheckBox_Click">
+			<CheckBox.Content>
+				<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+					<Image x:Name="IconImage" Height="22" Width="22"/>
+					<TextBlock x:Name="TitleText" Text="{x:Bind Title, Mode=OneWay}" FontSize="16" Margin="5,0,0,0"/>
+				</StackPanel>
+			</CheckBox.Content>
+		</CheckBox>
+		<Slider x:Name="WeightSlider" Value="{x:Bind Weight, Mode=OneWay}" Width="160" Minimum="0" Maximum="100" TickFrequency="1" IsThumbToolTipEnabled="False" VerticalAlignment="Center" ValueChanged="WeightSlider_ValueChanged" ManipulationCompleted="WeightSlider_ManipulationCompleted" ManipulationMode="All"/>
+		<TextBlock x:Name="SliderToolTip" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="16"/>
+	</StackPanel>
+</UserControl>
